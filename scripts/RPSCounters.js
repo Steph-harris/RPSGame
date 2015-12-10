@@ -8,11 +8,18 @@ window.roPaSc = {
 
 $(document).ready(function(){
   var rps = ["rock", "paper", "scissors"];
-  var usrChoice = $(".btn-success").text();
+  
+  //var usrChoice = $(".btn-success").attr("data-tag");
   
   $(".btn-success").on("click", function(e){
     e.preventDefault()
-    alert("You picked " + $(this).attr("id") + " and the comp chose: " + compRPS());
+    var usrChoice = $(this).attr("id");
+      compRPS();
+      if(usrChoice===compRPS()){
+        alert("tie!")
+      }
+      console.log(usrChoice, compRPS())
+     //alert("You picked " + $(this).attr("id") + " and the comp chose: " + compRPS());
   })
 
   $("#rand").on("click",function(){
@@ -29,6 +36,7 @@ $(document).ready(function(){
 
     return (rps[compChoice])
   }
+  
 });
 
 //user chooses r,p, or s, so make conditionals for each button?
