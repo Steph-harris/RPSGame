@@ -9,19 +9,11 @@ window.rps = {
 $(document).ready(function(){
   var rps = ["rock", "paper", "scissors"];
   var usrChoice = $(".btn-success").text();
-  //var compChoice = Math.floor(Math.random() * rps.length);
+  
+  $(".btn-success").on("click", function(e){
+    e.preventDefault()
+    alert("You picked " + $(this).attr("id") + " and the comp chose: " + compRPS());
 
-  $("#rock").on("click", function(e){
-    e.preventDefault()
-    alert("You picked rock and the comp chose: " + compRPS());
-  })
-  $("#paper").on("click", function(e){
-    e.preventDefault()
-    alert("You picked paper and the comp chose: " + compRPS());
-  })
-  $("#scissors").on("click", function(e){
-    e.preventDefault()
-    alert("You picked scissors and the comp chose: " + compRPS());
   })
 
   $("#rand").on("click",function(){
