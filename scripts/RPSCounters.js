@@ -13,7 +13,6 @@ $(document).ready(function(){
   $(".btn-success").on("click", function(e){
     e.preventDefault()
     alert("You picked " + $(this).attr("id") + " and the comp chose: " + compRPS());
-
   })
 
   $("#rand").on("click",function(){
