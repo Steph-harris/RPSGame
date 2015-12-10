@@ -1,4 +1,4 @@
-window.rps = {
+window.roPaSc = {
   gameState: {
     usrScr : 0,
     compScr : 0,
@@ -18,6 +18,10 @@ $(document).ready(function(){
   $("#rand").on("click",function(){
     compRPS();
   })
+
+  $("#round").text("Round " + roPaSc.gameState.rndCnt)
+  $("#userScore").text("Your Score is " + roPaSc.gameState.usrScr)
+  $("#compScore").text("Computer Score is " + roPaSc.gameState.compScr)
 
   function compRPS(){
     var compChoice = Math.floor(Math.random() * rps.length);
