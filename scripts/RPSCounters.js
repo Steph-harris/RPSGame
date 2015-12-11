@@ -9,12 +9,17 @@ window.roPaSc = {
 $(document).ready(function(){
   var rps = ["Rock", "Paper", "Scissors"];
   
+  if(roPaSc.gameState.rndCnt>5){
+
+  }
+
   $(".btn-success").on("click", function(e){
     e.preventDefault()
     
     var usrChoice = $(this).attr("id");      
     var computerChoice = compRPS();
 
+    //need the rndCnt to be the triggering event instead of button click
     if(roPaSc.gameState.rndCnt<=5){
       console.log(usrChoice, computerChoice);
       if(usrChoice===computerChoice){
@@ -34,8 +39,10 @@ $(document).ready(function(){
       }     
     }
     else{
+      $(".btn-success").fadeOut(2500);
       if (roPaSc.gameState.usrScr < roPaSc.gameState.compScr){
-      alert("game over");
+        $("#myModalLabel").text("Game Over")
+        $(".modal-body").text("You lost " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
       } else {
         $("#myModalLabel").text("You Did It!")
         $(".modal-body").text("You won " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
