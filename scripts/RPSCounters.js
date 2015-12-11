@@ -13,13 +13,15 @@ $(document).ready(function(){
   
   $(".btn-success").on("click", function(e){
     e.preventDefault()
-    var usrChoice = $(this).attr("id");
-      compRPS();
-      if(usrChoice===compRPS()){
-        alert("tie!")
-      }
-      console.log(usrChoice, compRPS())
-     //alert("You picked " + $(this).attr("id") + " and the comp chose: " + compRPS());
+    var usrChoice = $(this).attr("id");      
+    var computerChoice = compRPS();
+    
+    console.log(usrChoice, computerChoice);
+    if(usrChoice===computerChoice){
+      alert("tie!")
+    } else{
+    alert("You picked " + usrChoice + " and the comp chose: " + computerChoice);
+    }
   })
 
   $("#rand").on("click",function(){
@@ -32,6 +34,7 @@ $(document).ready(function(){
 
   function compRPS(){
     var compChoice = Math.floor(Math.random() * rps.length);
+    //debugger
     $("h2").text(rps[compChoice])
 
     return (rps[compChoice])
