@@ -9,24 +9,7 @@ window.roPaSc = {
 $(document).ready(function(){
   var rps = ["Rock", "Paper", "Scissors"];
   
-  // {
-
-  // }
-  
   // $(window).on("mouseenter", function(){
-  //   if(roPaSc.gameState.rndCnt>5){
-  //     $("#round").hide(); 
-  //     $(".btn-success").fadeOut(2500);
-  //     if (roPaSc.gameState.usrScr < roPaSc.gameState.compScr){
-  //       $("#myModalLabel").text("Game Over")
-  //       $(".modal-body").text("You lost " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
-  //     } else {
-  //       $("#myModalLabel").text("You Did It!")
-  //       $(".modal-body").text("You won " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
-  //     }$("#myModal").modal("show");
-  //   }
-    
-  //   });
 
   $(".btn-success").on("click", function(e){
     e.preventDefault()
@@ -78,11 +61,21 @@ $(document).ready(function(){
         $("#myModalLabel").text("You Did It!")
         $(".modal-body").text("You won " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
       }
+     
     }
     $("#myModal").modal("show");
     return
   })
-
+  $(".modal-footer").on ("click",".btn-default", function(){
+    roPaSc.gameState.usrScr= 0;
+    roPaSc.gameState.compScr= 0;
+    roPaSc.gameState.rndCnt= 1;
+    $("#round").text("Round " + roPaSc.gameState.rndCnt)
+    $("#userScore").text("Your Score is " + roPaSc.gameState.usrScr)
+    $("#compScore").text("Computer Score is " + roPaSc.gameState.compScr)
+    $("#round").show();
+    $(".btn-success").fadeIn(2500);
+  })
   function compRPS(){
     var compChoice = Math.floor(Math.random() * rps.length);
     $("h2").text(rps[compChoice])
