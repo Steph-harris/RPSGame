@@ -3,10 +3,7 @@ $(document).ready(function(){
   $(".btn-success").on("click", function(){
     if(roPaSc.gameState.rndCnt <= 5){
       roPaSc.gameState.rndCnt++;
-      $("#round").text("Round " + roPaSc.gameState.rndCnt)
-    } else {
-      $("#round").hide();
-    }
+      $("#round").text("Round " + roPaSc.gameState.rndCnt)}
   });
 
   $("#round").text("Round " + roPaSc.gameState.rndCnt)
