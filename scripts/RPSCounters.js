@@ -11,6 +11,7 @@ $(document).ready(function(){
   
   $(".btn-success").on("click", function(e){
     e.preventDefault()
+    
     var usrChoice = $(this).attr("id");      
     var computerChoice = compRPS();
 
@@ -30,17 +31,22 @@ $(document).ready(function(){
         $(".modal-body").text("You picked " + usrChoice + " and the comp chose " + computerChoice +". 1 point for the Computer!");
         roPaSc.gameState.compScr++;
         $("#compScore").text("Computer Score is: " + roPaSc.gameState.compScr)
-      }
-      $("#myModal").modal("show");
+      }     
     }
     else{
-      alert("game over")
+      if (roPaSc.gameState.usrScr < roPaSc.gameState.compScr){
+      alert("game over");
+      } else {
+        $("#myModalLabel").text("You Did It!")
+        $(".modal-body").text("You won " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
+      }
     }
+    $("#myModal").modal("show");
+    return
   })
 
   function compRPS(){
     var compChoice = Math.floor(Math.random() * rps.length);
-    //debugger
     $("h2").text(rps[compChoice])
 
     return (rps[compChoice])
