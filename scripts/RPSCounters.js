@@ -7,20 +7,25 @@ window.roPaSc = {
 }
 
 $(document).ready(function(){
-  var rps = ["rock", "paper", "scissors"];
+  var rps = ["Rock", "Paper", "Scissors"];
   
-  //var usrChoice = $(".btn-success").attr("data-tag");
   
   $(".btn-success").on("click", function(e){
     e.preventDefault()
     var usrChoice = $(this).attr("id");      
     var computerChoice = compRPS();
-    
+
     console.log(usrChoice, computerChoice);
     if(usrChoice===computerChoice){
-      alert("tie!")
-    } else{
-    alert("You picked " + usrChoice + " and the comp chose: " + computerChoice);
+      alert("You both picked: " + computerChoice + "|" + usrChoice + "; tie game means no points!")
+    } else if(usrChoice==="Rock" && computerChoice==="Scissors"){
+      alert("You picked " + usrChoice + " and the comp chose " + computerChoice +". 1 point for you!");
+      roPaSc.gameState.usrScr++;
+      $("#userScore").text("Your Score is " + roPaSc.gameState.usrScr)
+    }else if(usrChoice==="Rock" && computerChoice==="Paper"){
+      alert("You picked " + usrChoice + " and the comp chose " + computerChoice +". 1 point for the Comp!");
+      roPaSc.gameState.compScr++;
+      $("#compScore").text("Your Score is " + roPaSc.gameState.compScr)
     }
   })
 
@@ -39,7 +44,6 @@ $(document).ready(function(){
 
     return (rps[compChoice])
   }
-  
 });
 
 //user chooses r,p, or s, so make conditionals for each button?
