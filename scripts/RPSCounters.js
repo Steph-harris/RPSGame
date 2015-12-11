@@ -9,7 +9,24 @@ window.roPaSc = {
 $(document).ready(function(){
   var rps = ["Rock", "Paper", "Scissors"];
   
-  // $(window).on("mouseenter", function(){
+  // make the success btns off on window load
+  $(".btn-warning").on("click",function(){debugger;
+    if($(this).attr("data-state")==="off"){
+      $(this)
+      .attr("data-state", "on")
+      .removeClass("btn-warning")
+      .addClass("btn-danger")
+      .text("Stop Game")
+
+    } else {
+      $(this)
+      .attr("data-state", "off")
+      .removeClass("btn-danger")
+      .addClass("btn-warning")
+      .text("Start Game");
+    $(".btn-success").off("click");
+    }
+  });
 
   $(".btn-success").on("click", function(e){
     e.preventDefault()
@@ -60,12 +77,12 @@ $(document).ready(function(){
       } else {
         $("#myModalLabel").text("You Did It!")
         $(".modal-body").text("You won " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
-      }
-     
+      }    
     }
     $("#myModal").modal("show");
     return
   })
+
   $(".modal-footer").on ("click",".btn-default", function(){
     roPaSc.gameState.usrScr= 0;
     roPaSc.gameState.compScr= 0;
@@ -76,6 +93,7 @@ $(document).ready(function(){
     $("#round").show();
     $(".btn-success").fadeIn(2500);
   })
+
   function compRPS(){
     var compChoice = Math.floor(Math.random() * rps.length);
     $("h2").text(rps[compChoice])
