@@ -4,8 +4,6 @@ $(document).ready(function(){
     if(roPaSc.gameState.rndCnt <= 5){
       roPaSc.gameState.rndCnt++;
       $("#round").text("Round " + roPaSc.gameState.rndCnt)
-    } else {
-      $("#round").hide();
     }
   });
 
