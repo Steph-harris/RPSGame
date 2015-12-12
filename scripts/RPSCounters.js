@@ -12,6 +12,7 @@ $(document).ready(function(){
   //wrap success btns in function and call it in btn-block to make this work
   // make the success btns off on window load
   $(".btn-success").attr('disabled',true);
+  $("#inputModal").modal("show");
   
   $(".btn-block").on("click",function(){
     if($(this).attr("data-state")==="off"){
