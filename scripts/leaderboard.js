@@ -2,7 +2,7 @@ $(document).ready(function(){
   var LEADERBOARD_SIZE = 5;
 
   // Create our Firebase reference
-  var scoreListRef = new Firebase('https://sua7yyf9fcg.firebaseio-demo.com//scoreList');
+  var scoreListRef = new Firebase('https://glowing-inferno-802.firebaseio.com//scoreList');
 
   // Keep a mapping of firebase locations to HTML elements, so we can move / remove elements as necessary.
   var htmlForPath = {};
