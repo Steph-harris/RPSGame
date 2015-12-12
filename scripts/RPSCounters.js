@@ -6,7 +6,8 @@ window.roPaSc = {
   }
 }
 
-$(document).ready(function(){debugger;
+$(document).ready(function(){
+  //debugger;
   var rps = ["Rock", "Paper", "Scissors"];
   //wrap success btns in function and call it in btn-block to make this work
   // make the success btns off on window load
@@ -20,7 +21,7 @@ $(document).ready(function(){debugger;
       .addClass("btn-danger")
       .text("Stop Game")
     $(".btn-success").attr('disabled',false);
-      theGame();
+      //theGame();
     } else {
       $(this)
       .attr("data-state", "off")
@@ -30,9 +31,7 @@ $(document).ready(function(){debugger;
     $(".btn-success").attr('disabled',true);
     }
   });
-  
-  function theGame(){
-    $(".btn-success").on("click", function(e){
+  $(".btn-success").on("click", function(e){
       e.preventDefault()
       
       var usrChoice = $(this).attr("id");      
@@ -87,7 +86,9 @@ $(document).ready(function(){debugger;
       // roPaSc.gameState.rndCnt++;
       // $("#round").text("Round " + roPaSc.gameState.rndCnt)}
     })
-  }
+  // function theGame(){
+    
+  // }
 
   $(".modal-footer").on("click",".btn-default", function(){
     roPaSc.gameState.usrScr= 0;
