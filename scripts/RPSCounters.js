@@ -57,10 +57,13 @@ $(document).ready(function(){
         }     
       }
       else if (roPaSc.gameState.rndCnt=5){
+        debugger;
+        //added return to keep game from ending on a tie in round 5
         if(usrChoice===computerChoice){
           $("#myModalLabel").text("Tie Game!")
           $(".modal-body").text("You both picked: " + computerChoice + "|" + usrChoice + "; tie game means no points! Play Again!")
           roPaSc.gameState.rndCnt--;
+          return;
         } else if(usrChoice==="Rock" && computerChoice==="Scissors" || usrChoice==="Paper" && computerChoice==="Rock" || usrChoice==="Scissors" && computerChoice==="Paper"){
           $("#myModalLabel").text("You may have won this round...")
           $(".modal-body").text("You picked " + usrChoice + " and the comp chose " + computerChoice +". 1 point for you!");
