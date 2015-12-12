@@ -17,7 +17,20 @@
         <button class="btn btn-success" id="Paper" data-tag="1">
           Paper 
         </button>
+        <div class="leaderboard">
+          <table id="leaderboardTable">
+            <tr>
+              <th>Player</th>
+              <th>Score</th>
+            </tr>
+          </table>
+          <footer>
+            <input class="leaderboard-name" type="text" id="nameInput" placeholder="Enter a name">
+            <input class="leaderboard-score" type="text" id="scoreInput" placeholder="Record your score...">
+          </footer>
+        </div>
       </div>
+      
       <div class="col-md-3">
         <button class="btn btn-success" id="Scissors" data-tag="2">
           Scissors
@@ -59,5 +72,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="scripts/RPSCounters.js"></script>
   <script type="text/javascript" src="scripts/RPSLogic.js"></script>
+  <script type="text/javascript" src="scripts/leaderboard.js"></script>
 </body>
 </html>
