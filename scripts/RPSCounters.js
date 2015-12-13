@@ -34,7 +34,7 @@ $(document).ready(function(){
   });
   $(".btn-success").on("click", function(e){
       e.preventDefault()
-      
+      debugger;
       var usrChoice = $(this).attr("id");      
       var computerChoice = compRPS();
 
