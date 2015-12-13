@@ -3,6 +3,7 @@
 <head>
   <title>Rock, Paper, Scissors, Shoot!</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -46,8 +47,8 @@
         <p id="round"></p>
         <button class="btn btn-warning btn-block" type="submit" data-state="off">Start Game</button>
       </div>
-      <!--Erased trigger Button for Modal-->
-      <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="inputModal">
+      <!--Modal for user name input-->
+     <!--  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="inputModal">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-header">
@@ -56,9 +57,10 @@
             </div>
             <div class="modal-body">
               <input type="text" class="form-control" id="usrName" placeholder="Put name here">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Enter Game</button>
             </div>
         </div>
-      </div>
+      </div> -->
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -67,11 +69,11 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="myModalLabel"></h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body status">
               
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Restart Game</button>
+              <button type="button" class="btn btn-default reset" data-dismiss="modal">Restart Game</button>
               <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
             </div>
           </div>
