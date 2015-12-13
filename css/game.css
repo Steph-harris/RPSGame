@@ -1,6 +1,8 @@
+body {
+  background-color: gray;
+}
 #screen {
   background-color: blue;
   height: 500px;
-  width: 100%;
   border-radius: 40px;
 }
