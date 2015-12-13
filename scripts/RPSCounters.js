@@ -103,6 +103,7 @@ $(document).ready(function(){
     $("#compScore").text("Computer Score is " + roPaSc.gameState.compScr)
     $("#round").show();
     $(".btn-success").fadeIn(2500);
+    $(".leaderboard").hide();
   })
 
   function compRPS(){
