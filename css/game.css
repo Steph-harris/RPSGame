@@ -2,6 +2,7 @@ body {
   background-color: gray;
 }
 #screen {
+  border: 15px solid black;
   background-color: blue;
   height: 500px;
   border-radius: 40px;
