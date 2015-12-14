@@ -7,13 +7,23 @@ window.roPaSc = {
 }
 
 $(document).ready(function(){
-  //debugger;
   var rps = ["Rock", "Paper", "Scissors"];
   //wrap success btns in function and call it in btn-block to make this work
   // make the success btns off on window load
+  $(".leaderboard").hide();
+  $("#screen").slideUp(500);
   $(".btn-success").attr('disabled',true);
   $("#inputModal").modal("show");
   
+  $('#inputModal').on('hidden.bs.modal', function (e) {
+    $("#titleScreen").fadeIn(700).delay(5000).slideUp(600);
+    $("#screen").delay(6300).slideDown(1000);
+  })
+
+  $('#myModal').on('hidden.bs.modal', function (e) {
+    $("#screen").slideDown(700);
+  })
+
   $(".btn-block").on("click",function(){
     if($(this).attr("data-state")==="off"){
       $(this)
@@ -32,58 +42,67 @@ $(document).ready(function(){
     $(".btn-success").attr('disabled',true);
     }
   });
+  $(".btn-success").hover(function(){
+      $(this).addClass("tossing");
+    }, function(){
+      $(this).removeClass("tossing");
+    }
+    )
   $(".btn-success").on("click", function(e){
       e.preventDefault()
-      debugger;
       var usrChoice = $(this).attr("id");      
       var computerChoice = compRPS();
 
+      $("#screen").slideUp(500);
       //need the rndCnt to be the triggering event instead of button click
       if(roPaSc.gameState.rndCnt<5){
         
         if(usrChoice===computerChoice){
           $("#myModalLabel").text("Tie Game!")
-          $(".modal-body").text("You both picked: " + computerChoice + "|" + usrChoice + "; tie game means no points! Play Again!")
+          $(".status").text("You both picked: " + computerChoice + "|" + usrChoice + "; tie game means no points! Play Again!")
           roPaSc.gameState.rndCnt--;
         } else if(usrChoice==="Rock" && computerChoice==="Scissors" || usrChoice==="Paper" && computerChoice==="Rock" || usrChoice==="Scissors" && computerChoice==="Paper"){
           $("#myModalLabel").text("You may have won this round...")
-          $(".modal-body").text("You picked " + usrChoice + " and the comp chose " + computerChoice +". 1 point for you!");
+          $(".status").text("You picked " + usrChoice + " and the comp chose " + computerChoice +". 1 point for you!");
           roPaSc.gameState.usrScr++;
           $("#userScore").text("Your Score is: " + roPaSc.gameState.usrScr)
         }else if(usrChoice==="Rock" && computerChoice==="Paper" || usrChoice==="Paper" && computerChoice==="Scissors" || usrChoice==="Scissors" && computerChoice==="Rock"){
           $("#myModalLabel").text("Rise of the Machines...You Lose")
-          $(".modal-body").text("You picked " + usrChoice + " and the comp chose " + computerChoice +". 1 point for the Computer!");
+          $(".status").text("You picked " + usrChoice + " and the comp chose " + computerChoice +". 1 point for the Computer!");
           roPaSc.gameState.compScr++;
           $("#compScore").text("Computer Score is: " + roPaSc.gameState.compScr)
         }     
       }
       else if (roPaSc.gameState.rndCnt=5){
-        debugger;
+        
         //added return to keep game from ending on a tie in round 5
         if(usrChoice===computerChoice){
           $("#myModalLabel").text("Tie Game!")
-          $(".modal-body").text("You both picked: " + computerChoice + "|" + usrChoice + "; tie game means no points! Play Again!")
+          $(".status").text("You both picked: " + computerChoice + "|" + usrChoice + "; tie game means no points! Play Again!")
           roPaSc.gameState.rndCnt--;
           return;
         } else if(usrChoice==="Rock" && computerChoice==="Scissors" || usrChoice==="Paper" && computerChoice==="Rock" || usrChoice==="Scissors" && computerChoice==="Paper"){
           $("#myModalLabel").text("You may have won this round...")
-          $(".modal-body").text("You picked " + usrChoice + " and the comp chose " + computerChoice +". 1 point for you!");
+          $(".status").text("You picked " + usrChoice + " and the comp chose " + computerChoice +". 1 point for you!");
           roPaSc.gameState.usrScr++;
           $("#userScore").text("Your Score is: " + roPaSc.gameState.usrScr)
         }else if(usrChoice==="Rock" && computerChoice==="Paper" || usrChoice==="Paper" && computerChoice==="Scissors" || usrChoice==="Scissors" && computerChoice==="Rock"){
           $("#myModalLabel").text("Rise of the Machines...You Lose")
-          $(".modal-body").text("You picked " + usrChoice + " and the comp chose " + computerChoice +". 1 point for the Computer!");
+          $(".status").text("You picked " + usrChoice + " and the comp chose " + computerChoice +". 1 point for the Computer!");
           roPaSc.gameState.compScr++;
           $("#compScore").text("Computer Score is: " + roPaSc.gameState.compScr)
         }     
         $("#round").hide();
+        $(".compInfo").hide();
+        $(".btn-block").hide();
         $(".btn-success").fadeOut(2500);
+        $(".leaderboard").fadeIn(2500);
         if (roPaSc.gameState.usrScr < roPaSc.gameState.compScr){
           $("#myModalLabel").text("Game Over")
-          $(".modal-body").text("You lost " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
+          $(".status").text("You lost " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
         } else {
           $("#myModalLabel").text("You Did It!")
-          $(".modal-body").text("You won " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
+          $(".status").text("You won " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
         }    
       }
       $("#myModal").modal("show");
@@ -94,7 +113,7 @@ $(document).ready(function(){
     
   // }
 
-  $(".modal-footer").on("click",".btn-default", function(){
+  $(".modal-footer").on("click",".reset", function(){
     roPaSc.gameState.usrScr= 0;
     roPaSc.gameState.compScr= 0;
     roPaSc.gameState.rndCnt= 1;
@@ -103,6 +122,7 @@ $(document).ready(function(){
     $("#compScore").text("Computer Score is " + roPaSc.gameState.compScr)
     $("#round").show();
     $(".btn-success").fadeIn(2500);
+    $(".leaderboard").hide();
   })
 
   function compRPS(){
