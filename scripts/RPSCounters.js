@@ -11,9 +11,13 @@ $(document).ready(function(){
   //wrap success btns in function and call it in btn-block to make this work
   // make the success btns off on window load
   $(".leaderboard").hide();
+  $("#screen").slideUp(500);
   $(".btn-success").attr('disabled',true);
   $("#inputModal").modal("show");
   
+  $('#inputModal').on('hidden.bs.modal', function (e) {
+    $("#screen").slideDown(1000);
+})
   $(".btn-block").on("click",function(){
     if($(this).attr("data-state")==="off"){
       $(this)
