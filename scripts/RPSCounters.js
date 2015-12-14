@@ -16,8 +16,14 @@ $(document).ready(function(){
   $("#inputModal").modal("show");
   
   $('#inputModal').on('hidden.bs.modal', function (e) {
-    $("#screen").slideDown(1000);
-})
+    $("#titleScreen").fadeIn(700).delay(5000).slideUp(600);
+    $("#screen").delay(6300).slideDown(1000);
+  })
+
+  $('#myModal').on('hidden.bs.modal', function (e) {
+    $("#screen").slideDown(700);
+  })
+
   $(".btn-block").on("click",function(){
     if($(this).attr("data-state")==="off"){
       $(this)
@@ -36,11 +42,18 @@ $(document).ready(function(){
     $(".btn-success").attr('disabled',true);
     }
   });
+  $(".btn-success").hover(function(){
+      $(this).addClass("tossing");
+    }, function(){
+      $(this).removeClass("tossing");
+    }
+    )
   $(".btn-success").on("click", function(e){
       e.preventDefault()
       var usrChoice = $(this).attr("id");      
       var computerChoice = compRPS();
 
+      $("#screen").slideUp(500);
       //need the rndCnt to be the triggering event instead of button click
       if(roPaSc.gameState.rndCnt<5){
         
@@ -80,6 +93,8 @@ $(document).ready(function(){
           $("#compScore").text("Computer Score is: " + roPaSc.gameState.compScr)
         }     
         $("#round").hide();
+        $(".compInfo").hide();
+        $(".btn-block").hide();
         $(".btn-success").fadeOut(2500);
         $(".leaderboard").fadeIn(2500);
         if (roPaSc.gameState.usrScr < roPaSc.gameState.compScr){
