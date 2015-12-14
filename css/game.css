@@ -5,7 +5,7 @@ body {
 #inputModal {
   background: linear-gradient(blue, green, gray);
 }
-#inputModal .modal-content {
+#inputModal .modal-content, #myModal .modal-content {
   background-color: silver;
 }
 .choiceBtns{

@@ -93,6 +93,8 @@ $(document).ready(function(){
           $("#compScore").text("Computer Score is: " + roPaSc.gameState.compScr)
         }     
         $("#round").hide();
+        $(".compInfo").hide();
+        $(".btn-block").hide();
         $(".btn-success").fadeOut(2500);
         $(".leaderboard").fadeIn(2500);
         if (roPaSc.gameState.usrScr < roPaSc.gameState.compScr){
