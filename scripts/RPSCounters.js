@@ -16,9 +16,14 @@ $(document).ready(function(){
   $("#inputModal").modal("show");
   
   $('#inputModal').on('hidden.bs.modal', function (e) {
-    $("#titleScreen").fadeIn(700).delay(3000).fadeOut(600);
-    $("#screen").delay(4300).slideDown(1000);
-})
+    $("#titleScreen").fadeIn(700).delay(5000).slideUp(600);
+    $("#screen").delay(6300).slideDown(1000);
+  })
+
+  $('#myModal').on('hidden.bs.modal', function (e) {
+    $("#screen").slideDown(700);
+  })
+
   $(".btn-block").on("click",function(){
     if($(this).attr("data-state")==="off"){
       $(this)
@@ -48,6 +53,7 @@ $(document).ready(function(){
       var usrChoice = $(this).attr("id");      
       var computerChoice = compRPS();
 
+      $("#screen").slideUp(500);
       //need the rndCnt to be the triggering event instead of button click
       if(roPaSc.gameState.rndCnt<5){
         
