@@ -36,6 +36,12 @@ $(document).ready(function(){
     $(".btn-success").attr('disabled',true);
     }
   });
+  $(".btn-success").hover(function(){
+      $(this).addClass("tossing");
+    }, function(){
+      $(this).removeClass("tossing");
+    }
+    )
   $(".btn-success").on("click", function(e){
       e.preventDefault()
       var usrChoice = $(this).attr("id");      

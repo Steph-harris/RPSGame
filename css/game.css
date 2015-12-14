@@ -9,8 +9,9 @@ body {
   background-color: silver;
 }
 #screen {
+  color: white;
   border: 15px solid black;
   background-color: blue;
-  height: 500px;
+  height: 625px;
   border-radius: 40px;
 }
