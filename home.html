@@ -1,26 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rock, Paper, Scissors, Shoot!</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/game.css">
+  <link rel="stylesheet" type="text/css" href="http://www.justinaguilar.com/animations/css/animations.css">
 
 </head>
 <body>
   <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1" id="screen">
+        
+      </div>
+    </div>
     <div class="row-fluid">
       <div class="col-md-3">
         <button class="btn btn-success" id="Rock" data-tag="0">
-          Rock
+          <i class="fa fa-3x fa-hand-rock-o"><br>Rock</i>
         </button>
       </div>
       <div class="col-md-3">
         <button class="btn btn-success" id="Paper" data-tag="1">
-          Paper 
+          <i class="fa fa-3x fa-hand-paper-o"><br>Paper</i> 
         </button>
+        <div class="leaderboard">
+          <table id="leaderboardTable">
+            <tr>
+              <th>Player</th>
+              <th>Score</th>
+            </tr>
+          </table>
+          <footer>
+            <!--Moved nameInput down to input modal-->
+            <input class="leaderboard-score" type="text" id="scoreInput" placeholder="Record your score...">
+          </footer>
+        </div>
       </div>
+      
       <div class="col-md-3">
         <button class="btn btn-success" id="Scissors" data-tag="2">
-          Scissors
+          <i class="fa fa-3x fa-hand-scissors-o"><br>Scissors</i>
         </button>
       </div>
       <div class="col-md-3">
@@ -33,7 +56,21 @@
         <p id="round"></p>
         <button class="btn btn-warning btn-block" type="submit" data-state="off">Start Game</button>
       </div>
-      <!--Erased Button for Modal-->
+      <!--Modal for user name input-->
+      <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="mySmallModalLabel" id="inputModal">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Please Enter Your Name:</h4>
+            </div>
+            <div class="modal-body">
+              <input type="text" class="leaderboard-name form-control" id="nameInput" placeholder="Enter name here">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Enter Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -42,11 +79,11 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="myModalLabel"></h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body status">
               
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Restart Game</button>
+              <button type="button" class="btn btn-default reset" data-dismiss="modal">Restart Game</button>
               <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
             </div>
           </div>
@@ -55,9 +92,11 @@
     </div>
   </div>
   
+  <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="scripts/RPSCounters.js"></script>
   <script type="text/javascript" src="scripts/RPSLogic.js"></script>
+  <script type="text/javascript" src="scripts/leaderboard.js"></script>
 </body>
 </html>
