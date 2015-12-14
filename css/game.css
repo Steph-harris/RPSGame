@@ -1,8 +1,12 @@
 body {
   background-color: gray;
+  font-family: 'Press Start 2P', cursive;
 }
 #inputModal {
   background: linear-gradient(blue, green, gray);
+}
+#inputModal .modal-content {
+  background-color: silver;
 }
 #screen {
   border: 15px solid black;
