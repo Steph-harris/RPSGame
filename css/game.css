@@ -8,10 +8,24 @@ body {
 #inputModal .modal-content {
   background-color: silver;
 }
-#screen {
+.choiceBtns{
+  margin-top: 70px;
+  margin-left: 25px;
+}
+.scoreDisplay{
+  margin-top: 50px;
+}
+.scoreDisplay h1{
+  font-size: 30px;
+}
+#screen, #titleScreen {
   color: white;
   border: 15px solid black;
   background-color: blue;
   height: 625px;
   border-radius: 40px;
+  margin-top: 10px;
+}
+#titleScreen {
+  display: none;
 }
