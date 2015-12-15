@@ -61,7 +61,7 @@ $(document).ready(function(){
       var name = $("#nameInput").val();
       
       if (name.length === 0){
-        return;
+        name = ("Anonymous")
       }
 
       var userScoreRef = scoreListRef.child(name);
