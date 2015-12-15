@@ -41,3 +41,7 @@ body {
 .titleRck {
   margin-top: 70px;
 }
+.dropdown, .dropdown h5 {
+  padding-left: 0;
+  padding-right: 0;
+}
