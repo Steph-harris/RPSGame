@@ -57,10 +57,9 @@ $(document).ready(function(){
   // When the user presses enter on scoreInput, add the score, and update the highest score.
   $("#scoreInput").keypress(function (e) {
     if (e.keyCode == 13) {
-      var newScore = Number($("#scoreInput").val());
+      var newScore = roPaSc.gameState.usrScr 
       var name = $("#nameInput").val();
-      $("#scoreInput").val("");
-
+      
       if (name.length === 0){
         return;
       }
