@@ -100,12 +100,14 @@ $(document).ready(function(){
       $(".btn-block").hide();
       $(".btn-success").fadeOut(2500);
       $(".leaderboard").fadeIn(2500);
-      if (roPaSc.gameState.usrScr < roPaSc.gameState.compScr){
+      if (roPaSc.gameState.usrScr < roPaSc.gameState.compScr){       
         $("#myModalLabel").text("Game Over")
         $(".status").text("You lost " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
-      } else {
+        $(".winner").text("You Lose...");
+      } else {       
         $("#myModalLabel").text("You Did It!")
         $(".status").text("You won " + roPaSc.gameState.usrScr + " to " + roPaSc.gameState.compScr);
+        $(".winner").text("YOU WIN!!!");
       }    
     }
     $("#myModal").modal("show");
