@@ -1,7 +1,9 @@
 $(document).ready(function(){
   //figure out how to make game stop after 5th round
   $(".btn-success").on("click", function(){
-    if(roPaSc.gameState.rndCnt <= 5){
+    var rndNmb = parseInt($("#roundNmbr").val());
+
+    if(roPaSc.gameState.rndCnt <= rndNmb){
       roPaSc.gameState.rndCnt++;
       $("#round").text("Round " + roPaSc.gameState.rndCnt)
     }
@@ -12,8 +14,7 @@ $(document).ready(function(){
   $("#compScore").text("Computer Score is " + roPaSc.gameState.compScr)
 });
 
-//1. Add home screen with main Rock, Paper, Scissors animation
+//1. Add more home screen animations (moving h2's)
 //2. Figure out how to refresh the game
-//3. Log name and score to Firebase
-//4. Fix no modal on round 5 tie
-//5. Fix button input for Firebase 
+//3. Find way to clear computer choice on game restart
+
