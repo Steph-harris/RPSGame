@@ -61,8 +61,9 @@ $(document).ready(function(){
       var name = $("#nameInput").val();
       $("#scoreInput").val("");
 
-      if (name.length === 0)
+      if (name.length === 0){
         return;
+      }
 
       var userScoreRef = scoreListRef.child(name);
 
