@@ -17,12 +17,12 @@ $(document).ready(function(){
   $('#inputModal').on('hidden.bs.modal', function (e) {
     $("#titleScreen").fadeIn(700).delay(5000).slideUp(600);
     $("#screen").delay(6300).slideDown(1000);
-  })
+  });
 
   $('#myModal').on('hidden.bs.modal', function (e) {
     $("#screen").slideDown(700);
     $("input").focus();
-  })
+  });
 
   $(".btn-block").on("click",function(){
     if($(this).attr("data-state")==="off"){
@@ -52,6 +52,7 @@ $(document).ready(function(){
     e.preventDefault()
     var usrChoice = $(this).attr("id");      
     var computerChoice = compRPS();
+    var rndNmb = parseInt($("#roundNmbr").val());
 
     function tieGame(){
     $("#myModalLabel").text("Tie Game!")
@@ -75,7 +76,7 @@ $(document).ready(function(){
 
     $("#screen").slideUp(500);
     //need the rndCnt to be the triggering event instead of button click
-    if(roPaSc.gameState.rndCnt<5){     
+    if(roPaSc.gameState.rndCnt<rndNmb){     
       if(usrChoice===computerChoice){
         tieGame();
       } else if(usrChoice==="Rock" && computerChoice==="Scissors" || usrChoice==="Paper" && computerChoice==="Rock" || usrChoice==="Scissors" && computerChoice==="Paper"){
@@ -84,7 +85,7 @@ $(document).ready(function(){
         youWin();
       }     
     }
-    else if (roPaSc.gameState.rndCnt=5){    
+    else if (roPaSc.gameState.rndCnt=rndNmb){    
       //added return to keep game from ending on a tie in round 5
       if(usrChoice===computerChoice){
         tieGame();
@@ -125,6 +126,9 @@ $(document).ready(function(){
     $("#round").show();
     $(".btn-success").fadeIn(2500);
     $(".leaderboard").hide();
+    $(".winner").hide();
+    $(".compInfo").show();
+    $(".btn-block").show();
   });
 
   function compRPS(){
