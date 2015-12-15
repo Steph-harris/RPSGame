@@ -12,3 +12,6 @@ $(document).ready(function(){
   $("#compScore").text("Computer Score is " + roPaSc.gameState.compScr)
 });
 
+//1. Add home screen with main Rock, Paper, Scissors animation
+//2. Figure out how to refresh the game
+//3. Log name and score to Firebase
