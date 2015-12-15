@@ -40,6 +40,7 @@ $(document).ready(function(){
     $(".btn-success").attr('disabled',true);
     }
   });
+
   $(".btn-success").hover(function(){
       $(this).addClass("tossing");
     }, function(){
@@ -74,7 +75,7 @@ $(document).ready(function(){
     $("#screen").slideUp(500);
     //need the rndCnt to be the triggering event instead of button click
     if(roPaSc.gameState.rndCnt<5){     
-      if(usrChoice===computerChoice){debugger;
+      if(usrChoice===computerChoice){
         tieGame();
       } else if(usrChoice==="Rock" && computerChoice==="Scissors" || usrChoice==="Paper" && computerChoice==="Rock" || usrChoice==="Scissors" && computerChoice==="Paper"){
         iWin();
@@ -93,6 +94,7 @@ $(document).ready(function(){
       }else if(usrChoice==="Rock" && computerChoice==="Paper" || usrChoice==="Paper" && computerChoice==="Scissors" || usrChoice==="Scissors" && computerChoice==="Rock"){
         youWin();
       }     
+      
       $("#round").hide();
       $(".compInfo").hide();
       $(".btn-block").hide();
@@ -107,7 +109,7 @@ $(document).ready(function(){
       }    
     }
     $("#myModal").modal("show");
-  })
+  });
   
   $(".modal-footer").on("click",".reset", function(){
     roPaSc.gameState.usrScr= 0;
@@ -119,7 +121,7 @@ $(document).ready(function(){
     $("#round").show();
     $(".btn-success").fadeIn(2500);
     $(".leaderboard").hide();
-  })
+  });
 
   function compRPS(){
     var compChoice = Math.floor(Math.random() * rps.length);
