@@ -15,9 +15,10 @@ body {
 .scoreDisplay{
   margin-top: 50px;
 }
-.scoreDisplay h1{
+.scoreDisplay h1, .winner{
   font-size: 30px;
 }
+
 #screen, #titleScreen {
   color: white;
   border: 15px solid black;
