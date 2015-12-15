@@ -137,4 +137,8 @@ $(document).ready(function(){
 
     return (rps[compChoice])
   }
+
+  $("#round").text("Round " + roPaSc.gameState.rndCnt)
+  $("#userScore").text("Your Score is " + roPaSc.gameState.usrScr)
+  $("#compScore").text("Computer Score is " + roPaSc.gameState.compScr)
 });
