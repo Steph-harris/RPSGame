@@ -21,6 +21,7 @@ $(document).ready(function(){
 
   $('#myModal').on('hidden.bs.modal', function (e) {
     $("#screen").slideDown(700);
+    $("input").focus();
   })
 
   $(".btn-block").on("click",function(){
@@ -83,10 +84,11 @@ $(document).ready(function(){
         youWin();
       }     
     }
-    else if (roPaSc.gameState.rndCnt=5){     
+    else if (roPaSc.gameState.rndCnt=5){    
       //added return to keep game from ending on a tie in round 5
       if(usrChoice===computerChoice){
         tieGame();
+        $("#myModal").modal("show");
         return;
       } else if(usrChoice==="Rock" && computerChoice==="Scissors" || usrChoice==="Paper" && computerChoice==="Rock" || usrChoice==="Scissors" && computerChoice==="Paper"){
         iWin();

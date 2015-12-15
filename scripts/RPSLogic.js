@@ -15,3 +15,5 @@ $(document).ready(function(){
 //1. Add home screen with main Rock, Paper, Scissors animation
 //2. Figure out how to refresh the game
 //3. Log name and score to Firebase
+//4. Fix no modal on round 5 tie
+//5. Fix button input for Firebase 
