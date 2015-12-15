@@ -8,10 +8,6 @@ $(document).ready(function(){
       $("#round").text("Round " + roPaSc.gameState.rndCnt)
     }
   });
-
-  $("#round").text("Round " + roPaSc.gameState.rndCnt)
-  $("#userScore").text("Your Score is " + roPaSc.gameState.usrScr)
-  $("#compScore").text("Computer Score is " + roPaSc.gameState.compScr)
 });
 
 //1. Add more home screen animations (moving h2's)
